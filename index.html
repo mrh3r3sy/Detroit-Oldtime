@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Music Room</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f4f1ee;
+      color: #3b3b3b;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #9d8973;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    section {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      border-bottom: 2px solid #c7b198;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a {
+      color: #4f6d7a;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #7b6d63;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #5e524a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>The Music Room</h1>
+  <p>Classic sounds, updated vibes</p>
+</header>
+
+<section>
+  <h2>Upcoming Events</h2>
+  <ul id="events-list">
+    <!-- Events will be populated here by script.js -->
+  </ul>
+</section>
+
+<section>
+  <h2>Songs Played</h2>
+  <ul id="songs-list">
+    <!-- Songs will be populated here by script.js -->
+  </ul>
+</section>
+
+<section>
+  <h2>Contact Us</h2>
+  <form action="https://formspree.io/f/YOUR_ID_HERE" method="POST">
+    <input type="text" name="name" placeholder="Your name" required />
+    <input type="email" name="email" placeholder="Your email" required />
+    <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  &copy; 2025 The Music Room
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
