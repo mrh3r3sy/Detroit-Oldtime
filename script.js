@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(events => {
       const eventsList = document.getElementById('events-list');
-      eventsList.innerHTML = events.map(e => `<li>🎶 ${e.date} – ${e.name}</li>`).join('');
+      eventsList.innerHTML = events.map(e => `<li>🎶 ${e.date} – ${e.time} - ${e.name}</li>`).join('');
     });
 
   fetch('songs.json')
