@@ -1,5 +1,7 @@
 [
-  { "date": "July 25", "name": "Test 1" },
-  { "date": "August 3", "name": "Test 2" },
-  { "date": "August 14", "name": "Test 3" }
+  { "date": "August 14", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "September 11", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "October 9", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "Novemner 13", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "December 11", "time": "6-9PM", "name": "StoepelHaus" }
 ]
