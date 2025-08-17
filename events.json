@@ -1,7 +1,11 @@
 [
   { "date": "August 14", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "September 5", "time": "7-10PM", "name": "Ypsi Jam" },
   { "date": "September 11", "time": "6-9PM", "name": "StoepelHaus" },
   { "date": "October 9", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "November 7", "time": "7-10PM", "name": "Ypsi Jam" },
   { "date": "Novemner 13", "time": "6-9PM", "name": "StoepelHaus" },
+  { "date": "December 5", "time": "7-10PM", "name": "Ypsi Jam" },
   { "date": "December 11", "time": "6-9PM", "name": "StoepelHaus" }
 ]
+
