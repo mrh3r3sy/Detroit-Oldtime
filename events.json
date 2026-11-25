@@ -1,7 +1,6 @@
 [
   { "date": "Second Thursdays", "time": "6-9PM", "name": "West Side Detroit Old Time Jam" },
   { "date": "Fourth Mondays", "time": "6-9PM", "name": "East Side Detroit Old Time Jam" },
-  { "note": "Send us a message below for the address!" }
+  { "date": "", "time": "", "name": "Send us a message below for the address!" }
 ]
-
 
