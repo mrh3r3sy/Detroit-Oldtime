@@ -4,89 +4,123 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Detroit Old Time Jam</title>
+  <meta name="description" content="A friendly old time music jam in Detroit. All levels welcome." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header>
-  <h1>Detroit Old Time Jam</h1>
-  <p>Westside Detroit • Est. 2024</p>
+<header class="site-header">
+  <div class="header-inner">
+    <p class="eyebrow">Old Time String Band Music</p>
+    <h1>Detroit Old Time Jam</h1>
+    <p class="tagline">West Side and East Side Detroit &middot; Est. 2024</p>
+  </div>
 </header>
 
+<nav class="site-nav" aria-label="Page sections">
+  <a href="#about">About</a>
+  <a href="#events">Jams</a>
+  <a href="#tunes">Tunes</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 <main>
-<section>
-  <h2>About the Jam</h2>
-  <p>
-We welcome players of all levels to join us for old time tunes on unamplified fiddles, banjos, guitars, basses, or anything you think sounds good. Most of our tunes are in G, A, C, or D, so bring a capo if you need one.
 
-We’ll often play through tunes slowly a few times to help everyone get the hang of it (no pressure, just fun).
+  <section id="about">
+    <h2>About the Jam</h2>
+    <p class="lead">
+      We welcome players of all levels to join us for old time tunes on unamplified
+      fiddles, banjos, guitars, basses, or anything you think sounds good.
+    </p>
+    <ul class="details">
+      <li><strong>Keys.</strong> Most of our tunes are in G, A, C, or D, so bring a capo if you need one.</li>
+      <li><strong>Pace.</strong> We often play through tunes slowly a few times to help everyone get the hang of it. No pressure, just fun.</li>
+      <li><strong>Potluck.</strong> Feel free to bring food or drinks to share. It is totally optional.</li>
+      <li><strong>Access.</strong> The house is wheelchair accessible, with a ramp and an accessible bathroom.</li>
+    </ul>
+    <p>We are all about keeping it friendly, safe, and welcoming.</p>
+  </section>
 
-It's a potluck, so feel free to bring food or drinks to share (but it's totally optional).
-
-The house is wheelchair accessible, with a ramp and an accessible bathroom available.
-
-We’re all about keeping it friendly, safe, and welcoming.  </p>
-</section>
-  
-  <section>
-    <h2>Upcoming Events</h2>
-    <ul id="events-list">
-      <!-- Events will be populated here by script.js -->
+  <section id="events">
+    <h2>Upcoming Jams</h2>
+    <ul id="events-list" class="events">
+      <!-- Filled in by script.js -->
     </ul>
   </section>
 
-  <section>
-    <h2>Tunes we play</h2>
-    <ul id="songs-list">
-      <!-- Songs will be populated here by script.js -->
-    </ul>
+  <section id="tunes">
+    <h2>Tunes We Play</h2>
+    <p class="muted">Tap a tune title to hear a recording.</p>
+    <div id="songs-list">
+      <!-- Filled in by script.js -->
+    </div>
   </section>
 
-  <section>
-    <h2>Contact Us for Location or Questions</h2>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Write to us for the address or with any questions.</p>
 
-    <!-- Success Message (optional) -->
-    <div id="form-success" style="display: none; padding: 1rem; background-color: #e6ffed; border: 1px solid #a1e3b8; color: #2f703a; border-radius: 4px;">
-      ✅ Thank you! Your message has been sent.
+    <div id="form-success" class="form-message success" role="status" hidden>
+      Thank you! Your message has been sent. We will be in touch soon.
+    </div>
+    <div id="form-error" class="form-message error" role="alert" hidden>
+      Something went wrong sending your message. Please try again.
     </div>
 
     <form action="https://formspree.io/f/xnnzjglq" method="POST" id="contact-form">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="message" rows="5" placeholder="Your message..." required></textarea>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
       <button type="submit">Send Message</button>
     </form>
   </section>
+
 </main>
 
-<footer>
-  2024 DFT-DTJ
+<footer class="site-footer">
+  <p>Detroit Old Time Jam &middot; 2024 DFT-DTJ</p>
 </footer>
 
 <script src="script.js"></script>
-
 <script>
-  // Optional: show success message after submission without redirect
+  // Send the contact form without leaving the page
   const form = document.getElementById("contact-form");
   const successMsg = document.getElementById("form-success");
+  const errorMsg = document.getElementById("form-error");
 
-  form?.addEventListener("submit", function (e) {
+  form?.addEventListener("submit", async function (e) {
     e.preventDefault();
+    successMsg.hidden = true;
+    errorMsg.hidden = true;
 
-    const data = new FormData(form);
-    const xhr = new XMLHttpRequest();
+    const button = form.querySelector("button");
+    button.disabled = true;
+    button.textContent = "Sending...";
 
-    xhr.open(form.method, form.action);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.onload = function () {
-      if (xhr.status === 200) {
-        form.reset();
-        successMsg.style.display = "block";
-      } else {
-        alert("Oops! Think you broke a string! Please try again.");
-      }
-    };
-    xhr.send(data);
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+      if (!response.ok) throw new Error("Send failed");
+      form.reset();
+      successMsg.hidden = false;
+    } catch (err) {
+      errorMsg.hidden = false;
+    } finally {
+      button.disabled = false;
+      button.textContent = "Send Message";
+    }
   });
 </script>
 
